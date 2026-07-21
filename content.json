@@ -1,0 +1,124 @@
+{
+    "contact": {
+        "phone_display": "1800 997 157",
+        "phone_tel": "1800997157",
+        "whatsapp_number": "61413992060",
+        "email": "quote@pinnacleCC.com.au",
+        "service_area": "Sydney & Surrounding Suburbs"
+    },
+    "hero": {
+        "background_image": "assets/gallery/display-01.jpg",
+        "description": "Pinnacle Commercial Cleaning delivers quality-focused, hassle-free cleaning for medical centres, childcare centres, offices, display homes and dealerships across Sydney. Leave the cleaning to the experts, and get back to running your business."
+    },
+    "services": [
+        {
+            "image": "assets/gallery/medical-03.jpg",
+            "title": "Medical Centre Cleaning",
+            "description": "Hygiene-first cleaning for medical and dental practices, built around infection control and patient-ready presentation."
+        },
+        {
+            "image": "assets/gallery/childcare-05.jpg",
+            "title": "Childcare Centre Cleaning",
+            "description": "Safe, thorough cleaning for early learning environments, because nothing matters more than a child's wellbeing."
+        },
+        {
+            "image": "assets/gallery/display-01.jpg",
+            "title": "Open House & Display Home Cleaning",
+            "description": "Presentation-perfect cleans that help display homes and open homes put their absolute best foot forward."
+        },
+        {
+            "image": "assets/gallery/office-05.jpg",
+            "title": "Medium to Large Office Spaces",
+            "description": "Reliable, scheduled cleaning that keeps busy workplaces professional, welcoming and productive."
+        },
+        {
+            "image": "assets/gallery/automotive-01.jpg",
+            "title": "Automotive Dealerships",
+            "description": "Showroom-standard cleaning that keeps your dealership floor as sharp as the vehicles on it."
+        }
+    ],
+    "why_us": [
+        {
+            "title": "Quality-First, Hassle-Free",
+            "description": "We focus on quality with hassle-free customer satisfaction, every visit, every site."
+        },
+        {
+            "title": "Dedicated QC Manager",
+            "description": "Every client is assigned their own Quality Control Manager, at no extra charge."
+        },
+        {
+            "title": "Genuine Care",
+            "description": "Our point of difference isn't just what we clean: it's the care we bring to it."
+        },
+        {
+            "title": "More Time for Your Business",
+            "description": "Leave the cleaning to the experts, and focus on growing what matters most."
+        }
+    ],
+    "team": {
+        "group_photo": "assets/team-together.jpg",
+        "members": [
+            {
+                "initials": "BB",
+                "name": "Bojan Bliznjakovic",
+                "role": "Managing Director",
+                "bio": "Leads every client partnership personally, with hands-on care from first quote to final walkthrough."
+            },
+            {
+                "initials": "LB",
+                "name": "Lana Bliznjakovic",
+                "role": "Quality Control Manager",
+                "bio": "Personally ensures every site meets the Pinnacle standard, assigned to your business at no extra cost."
+            },
+            {
+                "initials": "MB",
+                "name": "Milenko Bliznjakovic",
+                "role": "Operations Manager",
+                "bio": "Ensures every job is completed safely and to Australian industry standards, leading quality inspections and the training of our cleaning team."
+            }
+        ]
+    },
+    "faq": [
+        {
+            "question": "How quickly will I receive a quote?",
+            "answer": "After your free on-site inspection, you'll receive a tailored, obligation-free quote within 24 hours, no waiting weeks to get started."
+        },
+        {
+            "question": "Do you offer one-off cleans or ongoing contracts?",
+            "answer": "Both. Whether you need a single display home clean or an ongoing office contract, we tailor our service around what you actually need."
+        },
+        {
+            "question": "What areas do you service?",
+            "answer": "We service commercial properties across Sydney and surrounding suburbs. Get in touch and we'll confirm we cover your location."
+        },
+        {
+            "question": "What makes Pinnacle different from other cleaning companies?",
+            "answer": "Every client is assigned a dedicated Quality Control Manager at no extra charge, so quality is never left to chance. That's Care and Commitment in action."
+        }
+    ],
+    "gallery": [
+        { "image": "assets/gallery/automotive-01.jpg", "alt": "Automotive dealership showroom cleaned by Pinnacle", "category": "automotive", "tag": "Dealership", "featured": true },
+        { "image": "assets/gallery/medical-06.jpg", "alt": "Medical centre cleaning in progress", "category": "medical", "tag": "Medical Centre", "featured": true },
+        { "image": "assets/gallery/childcare-05.jpg", "alt": "Childcare centre classroom cleaned by Pinnacle", "category": "childcare", "tag": "Childcare Centre", "featured": true },
+        { "image": "assets/gallery/display-01.jpg", "alt": "Display home living area cleaned by Pinnacle", "category": "display", "tag": "Display Home", "featured": true },
+        { "image": "assets/gallery/office-05.jpg", "alt": "Office space cleaned by Pinnacle", "category": "office", "tag": "Office Space", "featured": true },
+        { "image": "assets/gallery/medical-02.jpg", "alt": "Dental surgery cleaning", "category": "medical", "tag": "Medical Centre", "featured": false },
+        { "image": "assets/gallery/childcare-02.jpg", "alt": "Childcare centre reading corner cleaned by Pinnacle", "category": "childcare", "tag": "Childcare Centre", "featured": false },
+        { "image": "assets/gallery/display-02.jpg", "alt": "Display home hallway cleaned by Pinnacle", "category": "display", "tag": "Display Home", "featured": false },
+        { "image": "assets/gallery/office-02.jpg", "alt": "Corporate office corridor cleaned by Pinnacle", "category": "office", "tag": "Office Space", "featured": false },
+        { "image": "assets/gallery/medical-03.jpg", "alt": "Medical exam room cleaned by Pinnacle", "category": "medical", "tag": "Medical Centre", "featured": false },
+        { "image": "assets/gallery/childcare-03.jpg", "alt": "Childcare centre play area cleaned by Pinnacle", "category": "childcare", "tag": "Childcare Centre", "featured": false },
+        { "image": "assets/gallery/display-03.jpg", "alt": "Display home ensuite cleaned by Pinnacle", "category": "display", "tag": "Display Home", "featured": false },
+        { "image": "assets/gallery/medical-04.jpg", "alt": "Medical centre treatment room cleaned by Pinnacle", "category": "medical", "tag": "Medical Centre", "featured": false },
+        { "image": "assets/gallery/childcare-04.jpg", "alt": "Childcare centre activity room cleaned by Pinnacle", "category": "childcare", "tag": "Childcare Centre", "featured": false },
+        { "image": "assets/gallery/display-04.jpg", "alt": "Display home pool terrace cleaned by Pinnacle", "category": "display", "tag": "Display Home", "featured": false },
+        { "image": "assets/gallery/medical-05.jpg", "alt": "Paediatric dental room cleaned by Pinnacle", "category": "medical", "tag": "Medical Centre", "featured": false },
+        { "image": "assets/gallery/childcare-01.jpg", "alt": "Childcare centre toy area cleaned by Pinnacle", "category": "childcare", "tag": "Childcare Centre", "featured": false },
+        { "image": "assets/gallery/office-01.jpg", "alt": "Corporate meeting room cleaned by Pinnacle", "category": "office", "tag": "Office Space", "featured": false },
+        { "image": "assets/gallery/office-04.jpg", "alt": "Office reception area cleaned by Pinnacle", "category": "office", "tag": "Office Space", "featured": false },
+        { "image": "assets/gallery/office-03.jpg", "alt": "Commercial fitness facility cleaned by Pinnacle", "category": "office", "tag": "Office & Facility", "featured": false }
+    ],
+    "footer": {
+        "blurb": "Sydney's care-and-commitment commercial cleaning specialists, trusted across medical, childcare, office, display home and dealership sites."
+    }
+}

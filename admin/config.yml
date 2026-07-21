@@ -1,0 +1,89 @@
+backend:
+  name: github
+  repo: bbojan115/Pinnacle-CC
+  branch: main
+  base_url: https://pinnaclecc.com.au
+  auth_endpoint: api/auth
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "content"
+    label: "Website Content"
+    files:
+      - file: "content.json"
+        label: "Site Content"
+        name: "site"
+        fields:
+          - label: "Contact Details"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Phone Number (as shown)", name: "phone_display", widget: "string", hint: "e.g. 1800 997 157" }
+              - { label: "Phone Number (digits only, for click-to-call)", name: "phone_tel", widget: "string", hint: "e.g. 1800997157, no spaces" }
+              - { label: "WhatsApp Number (digits only, with country code)", name: "whatsapp_number", widget: "string", hint: "e.g. 61413992060" }
+              - { label: "Email Address", name: "email", widget: "string" }
+              - { label: "Service Area", name: "service_area", widget: "string" }
+
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Background Image", name: "background_image", widget: "image" }
+              - { label: "Description Paragraph", name: "description", widget: "text" }
+
+          - label: "Services (Specialties)"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Why Choose Us"
+            name: "why_us"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Team"
+            name: "team"
+            widget: "object"
+            fields:
+              - { label: "Group Photo", name: "group_photo", widget: "image" }
+              - label: "Team Members"
+                name: "members"
+                widget: "list"
+                fields:
+                  - { label: "Initials (for avatar)", name: "initials", widget: "string" }
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Role", name: "role", widget: "string" }
+                  - { label: "Bio", name: "bio", widget: "text" }
+
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+          - label: "Gallery Photos"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Description (for accessibility)", name: "alt", widget: "string" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["medical", "childcare", "display", "office", "automotive"]
+              - { label: "Label Shown on Photo", name: "tag", widget: "string" }
+              - { label: "Show in 'All Work' highlights?", name: "featured", widget: "boolean", default: false }
+
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Blurb", name: "blurb", widget: "text" }

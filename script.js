@@ -1,4 +1,106 @@
 document.addEventListener("DOMContentLoaded", function () {
+    loadContent().finally(initPage);
+});
+
+/* ---------- Content loading (drives the CMS-editable text/images) ---------- */
+var siteContent = null;
+
+function loadContent() {
+    return fetch("content.json", { cache: "no-store" })
+        .then(function (res) {
+            if (!res.ok) throw new Error("content.json not found");
+            return res.json();
+        })
+        .then(function (data) {
+            siteContent = data;
+            applyTextFields(data);
+            applyImageFields(data);
+            applyTelFields(data);
+            applyMailtoFields(data);
+            applyWhatsappFields(data);
+            renderGallery(data.gallery || []);
+            updateSchema(data);
+        })
+        .catch(function (err) {
+            console.warn("Pinnacle content.json failed to load, page falls back to its static HTML content.", err);
+        });
+}
+
+function getByPath(obj, path) {
+    return path.split(".").reduce(function (acc, key) {
+        return acc && acc[key] !== undefined ? acc[key] : undefined;
+    }, obj);
+}
+
+function applyTextFields(data) {
+    document.querySelectorAll("[data-cms]").forEach(function (el) {
+        var value = getByPath(data, el.getAttribute("data-cms"));
+        if (value !== undefined) el.textContent = value;
+    });
+}
+
+function applyImageFields(data) {
+    document.querySelectorAll("[data-cms-img]").forEach(function (el) {
+        var value = getByPath(data, el.getAttribute("data-cms-img"));
+        if (value !== undefined) el.src = value;
+    });
+}
+
+function applyTelFields(data) {
+    document.querySelectorAll("[data-cms-tel]").forEach(function (el) {
+        var value = getByPath(data, el.getAttribute("data-cms-tel"));
+        if (value !== undefined) el.href = "tel:" + value;
+    });
+}
+
+function applyMailtoFields(data) {
+    document.querySelectorAll("[data-cms-mailto]").forEach(function (el) {
+        var value = getByPath(data, el.getAttribute("data-cms-mailto"));
+        if (value !== undefined) el.href = "mailto:" + value;
+    });
+}
+
+function applyWhatsappFields(data) {
+    document.querySelectorAll("[data-cms-wa]").forEach(function (el) {
+        var value = getByPath(data, el.getAttribute("data-cms-wa"));
+        if (value !== undefined) el.href = "https://wa.me/" + value;
+    });
+}
+
+function renderGallery(items) {
+    var grid = document.getElementById("gallery-grid");
+    if (!grid || !items.length) return;
+
+    grid.innerHTML = items
+        .map(function (item) {
+            return (
+                '<div class="gallery-item" data-cat="' + item.category + '"' +
+                (item.featured ? ' data-featured="true"' : "") + ">" +
+                '<img src="' + item.image + '" alt="' + item.alt + '" loading="lazy" />' +
+                '<span class="gallery-tag">' + item.tag + "</span>" +
+                "</div>"
+            );
+        })
+        .join("");
+}
+
+function updateSchema(data) {
+    var schemaEl = document.getElementById("ld-schema");
+    if (!schemaEl) return;
+    try {
+        var schema = JSON.parse(schemaEl.textContent);
+        if (data.contact) {
+            if (data.contact.phone_tel) schema.telephone = data.contact.phone_tel;
+            if (data.contact.email) schema.email = data.contact.email;
+        }
+        schemaEl.textContent = JSON.stringify(schema);
+    } catch (e) {
+        console.warn("Could not update structured data with CMS content.", e);
+    }
+}
+
+/* ---------- Everything else runs once the content above is in place ---------- */
+function initPage() {
     /* ---------- Footer year ---------- */
     var yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -110,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             var actionUrl = form.getAttribute("action") || "";
             var isConfigured = actionUrl.indexOf("YOUR_FORM_ID") === -1;
+            var fallbackPhone = (siteContent && siteContent.contact && siteContent.contact.phone_display) || "1800 997 157";
 
             submitBtn.disabled = true;
             submitBtn.style.opacity = "0.7";
@@ -126,13 +229,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         } else {
                             submitBtn.disabled = false;
                             submitBtn.style.opacity = "1";
-                            alert("Something went wrong sending your request. Please call 0413 992 060 instead.");
+                            alert("Something went wrong sending your request. Please call " + fallbackPhone + " instead.");
                         }
                     })
                     .catch(function () {
                         submitBtn.disabled = false;
                         submitBtn.style.opacity = "1";
-                        alert("Something went wrong sending your request. Please call 0413 992 060 instead.");
+                        alert("Something went wrong sending your request. Please call " + fallbackPhone + " instead.");
                     });
             } else {
                 /* Form endpoint not yet connected, see README for setup instructions. */
@@ -171,4 +274,4 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
     }
-});
+}
