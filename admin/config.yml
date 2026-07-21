@@ -26,6 +26,19 @@ collections:
               - { label: "Email Address", name: "email", widget: "string" }
               - { label: "Service Area", name: "service_area", widget: "string" }
 
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            fields:
+              - { label: "\"Book Free Inspection\" Button (top nav, both desktop and mobile menu)", name: "cta_text", widget: "string" }
+
+          - label: "Mobile Sticky Bar (buttons pinned to bottom of screen on phones)"
+            name: "mobile_sticky"
+            widget: "object"
+            fields:
+              - { label: "Call Button Text", name: "call_text", widget: "string" }
+              - { label: "Quote Button Text", name: "quote_text", widget: "string" }
+
           - label: "Hero Section"
             name: "hero"
             widget: "object"
@@ -165,3 +178,4 @@ collections:
             widget: "object"
             fields:
               - { label: "Blurb", name: "blurb", widget: "text" }
+              - { label: "\"Book a Free Inspection\" Link Text", name: "cta_text", widget: "string" }
