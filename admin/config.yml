@@ -2,7 +2,7 @@ backend:
   name: github
   repo: bbojan115/Pinnacle-CC
   branch: main
-  base_url: https://pinnaclecc.com.au
+  base_url: https://www.pinnaclecc.com.au
   auth_endpoint: api/auth
 
 media_folder: "assets/uploads"
