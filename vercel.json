@@ -1,0 +1,16 @@
+{
+    "headers": [
+        {
+            "source": "/admin/(.*)",
+            "headers": [{ "key": "Cache-Control", "value": "no-store, must-revalidate" }]
+        },
+        {
+            "source": "/content.json",
+            "headers": [{ "key": "Cache-Control", "value": "no-store, must-revalidate" }]
+        },
+        {
+            "source": "/api/(.*)",
+            "headers": [{ "key": "Cache-Control", "value": "no-store, must-revalidate" }]
+        }
+    ]
+}
