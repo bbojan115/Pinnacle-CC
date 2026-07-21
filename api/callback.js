@@ -36,16 +36,24 @@ module.exports = async (req, res) => {
                         return;
                     }
 
+                    var pingInterval;
+
                     function receiveMessage(e) {
                         window.opener.postMessage(
                             'authorization:github:success:${payload}',
                             e.origin
                         );
                         window.removeEventListener("message", receiveMessage, false);
+                        clearInterval(pingInterval);
                         statusEl.textContent = "Signed in — you can close this tab.";
                     }
                     window.addEventListener("message", receiveMessage, false);
-                    window.opener.postMessage("authorizing:github", "*");
+
+                    // Keep pinging the CMS tab until it replies, in case this
+                    // fires before that tab has finished attaching its listener.
+                    pingInterval = setInterval(function () {
+                        window.opener.postMessage("authorizing:github", "*");
+                    }, 100);
                 })();
             </script>
             </body></html>
