@@ -36,32 +36,39 @@ module.exports = async (req, res) => {
                         return;
                     }
 
-                    var pingInterval, successInterval, successCount;
+                    // Rather than waiting for the CMS tab to acknowledge a "ready" ping
+                    // first (which can be missed if its listener is still attaching),
+                    // just broadcast the real success payload repeatedly for several
+                    // seconds. Sending it before the tab is listening is harmless —
+                    // the message is simply dropped — and the next attempt gets through
+                    // once the listener is live. This trades a little redundancy for
+                    // reliability.
+                    var attempts = 0;
+                    var maxAttempts = 60; // 60 x 150ms = ~9 seconds
 
-                    function sendSuccess() {
-                        // Sent repeatedly (with a wildcard target) for a short window,
-                        // since a single delivery attempt can be missed by the CMS tab
-                        // depending on exactly when its listener attaches.
+                    var sendInterval = setInterval(function () {
+                        window.opener.postMessage('authorizing:github', "*");
                         window.opener.postMessage('authorization:github:success:${payload}', "*");
-                        successCount += 1;
-                        if (successCount >= 10) clearInterval(successInterval);
-                    }
+                        attempts += 1;
+                        if (attempts >= maxAttempts) {
+                            clearInterval(sendInterval);
+                            statusEl.textContent =
+                                "Still waiting on the CMS tab to respond. You can close this tab " +
+                                "and check whether it logged in anyway, or try again.";
+                        }
+                    }, 150);
 
-                    function receiveMessage() {
-                        window.removeEventListener("message", receiveMessage, false);
-                        clearInterval(pingInterval);
-                        successCount = 0;
-                        sendSuccess();
-                        successInterval = setInterval(sendSuccess, 200);
-                        statusEl.textContent = "Signed in — you can close this tab.";
-                    }
-                    window.addEventListener("message", receiveMessage, false);
-
-                    // Keep pinging the CMS tab until it replies, in case this
-                    // fires before that tab has finished attaching its listener.
-                    pingInterval = setInterval(function () {
-                        window.opener.postMessage("authorizing:github", "*");
-                    }, 100);
+                    window.addEventListener(
+                        "message",
+                        function () {
+                            clearInterval(sendInterval);
+                            statusEl.textContent = "Signed in — closing this tab automatically.";
+                            setTimeout(function () {
+                                window.close();
+                            }, 800);
+                        },
+                        false
+                    );
                 })();
             </script>
             </body></html>
