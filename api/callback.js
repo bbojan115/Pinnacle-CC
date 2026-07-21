@@ -21,15 +21,28 @@ module.exports = async (req, res) => {
         res.setHeader("Content-Type", "text/html");
         res.status(200).send(`
             <!doctype html>
-            <html><body>
+            <html><body style="font-family: sans-serif; padding: 2rem; color: #334155;">
+            <p id="status">Completing sign-in&hellip;</p>
             <script>
                 (function () {
+                    var statusEl = document.getElementById("status");
+
+                    if (!window.opener) {
+                        statusEl.textContent =
+                            "Sign-in succeeded, but this tab lost its connection back to the CMS tab " +
+                            "(a browser security behavior GitHub's login page triggers). " +
+                            "Please close this tab and try logging in again — if it keeps happening, " +
+                            "try a different browser or disable strict tracking-protection for this site.";
+                        return;
+                    }
+
                     function receiveMessage(e) {
                         window.opener.postMessage(
                             'authorization:github:success:${payload}',
                             e.origin
                         );
                         window.removeEventListener("message", receiveMessage, false);
+                        statusEl.textContent = "Signed in — you can close this tab.";
                     }
                     window.addEventListener("message", receiveMessage, false);
                     window.opener.postMessage("authorizing:github", "*");
