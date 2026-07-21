@@ -6,6 +6,13 @@
         "email": "quote@pinnacleCC.com.au",
         "service_area": "Sydney & Surrounding Suburbs"
     },
+    "header": {
+        "cta_text": "Book Free Inspection"
+    },
+    "mobile_sticky": {
+        "call_text": "Call Now",
+        "quote_text": "Free Quote"
+    },
     "hero": {
         "background_image": "assets/gallery/display-01.jpg",
         "eyebrow": "Care & Commitment, On Every Job",
@@ -174,6 +181,7 @@
         "description": "Fill out the form and our team will be in touch to arrange your free, obligation-free inspection, with a tailored quote in your inbox within 24 hours."
     },
     "footer": {
-        "blurb": "Sydney's care-and-commitment commercial cleaning specialists, trusted across medical, childcare, office, display home and dealership sites."
+        "blurb": "Sydney's care-and-commitment commercial cleaning specialists, trusted across medical, childcare, office, display home and dealership sites.",
+        "cta_text": "Book a Free Inspection"
     }
 }
