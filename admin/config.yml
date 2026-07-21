@@ -31,7 +31,31 @@ collections:
             widget: "object"
             fields:
               - { label: "Background Image", name: "background_image", widget: "image" }
+              - { label: "Badge Text (above heading)", name: "eyebrow", widget: "string" }
+              - { label: "Heading, Line 1", name: "heading_line1", widget: "string" }
+              - { label: "Heading, Line 2 (highlighted)", name: "heading_line2", widget: "string" }
               - { label: "Description Paragraph", name: "description", widget: "text" }
+              - { label: "Button Text", name: "cta_text", widget: "string" }
+              - { label: "Note Below Buttons", name: "quote_note", widget: "string" }
+
+          - label: "Trust Bar (4 stats under the hero)"
+            name: "trust_bar"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+
+          - label: "Services Section Heading"
+            name: "services_section"
+            widget: "object"
+            fields:
+              - { label: "Badge Text", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "\"Not seeing your industry\" card, line 1", name: "cta_title_line1", widget: "string" }
+              - { label: "\"Not seeing your industry\" card, line 2", name: "cta_title_line2", widget: "string" }
+              - { label: "\"Not seeing your industry\" card, description", name: "cta_description", widget: "text" }
+              - { label: "\"Not seeing your industry\" card, link text", name: "cta_link_text", widget: "string" }
 
           - label: "Services (Specialties)"
             name: "services"
@@ -41,11 +65,50 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
+          - label: "Why Choose Us Section Heading"
+            name: "why_us_section"
+            widget: "object"
+            fields:
+              - { label: "Badge Text", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
           - label: "Why Choose Us"
             name: "why_us"
             widget: "list"
             fields:
               - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "How It Works Section Heading"
+            name: "process_section"
+            widget: "object"
+            fields:
+              - { label: "Badge Text", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "How It Works Steps"
+            name: "process_steps"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Gallery Section Heading"
+            name: "gallery_section"
+            widget: "object"
+            fields:
+              - { label: "Badge Text", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Team Section Heading"
+            name: "team_section"
+            widget: "object"
+            fields:
+              - { label: "Badge Text", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
           - label: "Team"
@@ -61,6 +124,13 @@ collections:
                   - { label: "Name", name: "name", widget: "string" }
                   - { label: "Role", name: "role", widget: "string" }
                   - { label: "Bio", name: "bio", widget: "text" }
+
+          - label: "FAQ Section Heading"
+            name: "faq_section"
+            widget: "object"
+            fields:
+              - { label: "Badge Text", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
 
           - label: "FAQ"
             name: "faq"
@@ -81,6 +151,14 @@ collections:
                 options: ["medical", "childcare", "display", "office", "automotive"]
               - { label: "Label Shown on Photo", name: "tag", widget: "string" }
               - { label: "Show in 'All Work' highlights?", name: "featured", widget: "boolean", default: false }
+
+          - label: "Contact Section Heading"
+            name: "contact_section"
+            widget: "object"
+            fields:
+              - { label: "Badge Text", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
 
           - label: "Footer"
             name: "footer"
