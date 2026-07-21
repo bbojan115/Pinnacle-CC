@@ -36,15 +36,23 @@ module.exports = async (req, res) => {
                         return;
                     }
 
-                    var pingInterval;
+                    var pingInterval, successInterval, successCount;
 
-                    function receiveMessage(e) {
-                        window.opener.postMessage(
-                            'authorization:github:success:${payload}',
-                            e.origin
-                        );
+                    function sendSuccess() {
+                        // Sent repeatedly (with a wildcard target) for a short window,
+                        // since a single delivery attempt can be missed by the CMS tab
+                        // depending on exactly when its listener attaches.
+                        window.opener.postMessage('authorization:github:success:${payload}', "*");
+                        successCount += 1;
+                        if (successCount >= 10) clearInterval(successInterval);
+                    }
+
+                    function receiveMessage() {
                         window.removeEventListener("message", receiveMessage, false);
                         clearInterval(pingInterval);
+                        successCount = 0;
+                        sendSuccess();
+                        successInterval = setInterval(sendSuccess, 200);
                         statusEl.textContent = "Signed in — you can close this tab.";
                     }
                     window.addEventListener("message", receiveMessage, false);
