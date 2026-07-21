@@ -26,6 +26,23 @@ module.exports = async (req, res) => {
             <script>
                 (function () {
                     var statusEl = document.getElementById("status");
+                    var diagEl = document.createElement("pre");
+                    diagEl.style.cssText = "margin-top:1.5rem;padding:1rem;background:#f1f5f9;border-radius:8px;font-size:12px;white-space:pre-wrap;color:#475569;";
+                    document.body.appendChild(diagEl);
+
+                    function diag(label, fn) {
+                        try {
+                            diagEl.textContent += label + ": " + fn() + "\\n";
+                        } catch (e) {
+                            diagEl.textContent += label + ": THREW - " + e.name + ": " + e.message + "\\n";
+                        }
+                    }
+
+                    diag("window.opener present", function () { return !!window.opener; });
+                    diag("window.opener.closed", function () { return window.opener.closed; });
+                    diag("window.opener.location.href", function () { return window.opener.location.href; });
+                    diag("window.opener.document.title", function () { return window.opener.document.title; });
+                    diag("this window's own URL", function () { return window.location.href; });
 
                     if (!window.opener) {
                         statusEl.textContent =
