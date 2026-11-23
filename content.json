@@ -77,16 +77,16 @@
       "description": "We focus on quality with hassle-free customer satisfaction, every visit, every site."
     },
     {
-      "title": "More Time for Your Business",
-      "description": "Leave the cleaning to the experts and spend more time doing what you do best."
-    },
-    {
       "title": "Genuine Care",
-      "description": "Our point of difference isn't just how we clean; it's the care we bring to it.  "
+      "description": "\nOur point of difference isn't just how we clean; it's the care we bring to it.  "
     },
     {
       "title": "Committed To Quality ",
-      "description": "Every client is assigned their own Quality Control Manager, as a standard service, at no extra charge."
+      "description": "Every client is assigned their own Quality Control Manager, at no extra charge.\n"
+    },
+    {
+      "title": "More Time for Your Business ",
+      "description": "Leave the cleaning to the experts so you can spend more time doing what you do best.\n\n"
     }
   ],
   "process_section": {
